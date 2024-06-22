@@ -28,7 +28,6 @@ const App: React.FC = () => {
           // Assuming here that each field initially expects a single string value
           initialFormData[field.name] = '';
         });
-s
         setQuestions(fields);
         setFormData(initialFormData);
         setTemplateHtml(html);
