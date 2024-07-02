@@ -5,6 +5,8 @@ interface Question {
   name: string;
   type: string;
   options?: string[];
+  isConfig?: boolean;
+  questions?: { [key: string]: Question[] };
 }
 
 interface FormProps {
@@ -30,8 +32,22 @@ const QuestionForm: React.FC<FormProps> = ({ questions, formData, handleChange, 
     handleChange(field, values);
   };
 
+  const renderDynamicQuestions = (questions: Question[], configValue: string) => {
+    const dynamicQuestions = questions.find(q => q.name === configValue)?.questions?.[formData[configValue] as string];
+    return dynamicQuestions?.map((question, index) => (
+      <div key={index}>
+        <label>{question.label}</label>
+        <input
+          type="text"
+          value={formData[question.name] as string || ''}
+          onChange={(e) => handleChange(question.name, e.target.value)}
+        />
+      </div>
+    ));
+  };
+
   const currentQuestion = questions[currentStep];
-  const { label, name, options, type } = currentQuestion;
+  const { label, name, options, type, isConfig } = currentQuestion;
 
   return (
     <div>
@@ -91,6 +107,7 @@ const QuestionForm: React.FC<FormProps> = ({ questions, formData, handleChange, 
           </select>
         )}
       </div>
+      {isConfig && renderDynamicQuestions(questions, name)}
       <div>
         <button onClick={prevStep} disabled={currentStep === 0}>
           Previous

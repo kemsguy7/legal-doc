@@ -6,7 +6,14 @@ interface TemplateDisplayProps {
 }
 
 const TemplateDisplay: React.FC<TemplateDisplayProps> = ({ formData, templateHtml }) => {
-  const filledTemplate = templateHtml.replace(/{{(.*?)}}/g, (_, key) => formData[key.trim()] || '______');
+  const filledTemplate = templateHtml.replace(/#Dynamic firstPartyType=.*?#(.*?)\\Dynamic\\/gs, (match, p1) => {
+    const dynamicMatch = match.match(/#Dynamic firstPartyType=(.*?)#/);
+    const dynamicKey = dynamicMatch ? dynamicMatch[1] : '';
+
+    return p1.replace(new RegExp(dynamicKey, 'g'), formData[dynamicKey] || '______');
+  });
+
+  const updatedTemplate = filledTemplate.replace(/{{(.*?)}}/g, (_, key) => formData[key.trim()] || '______');
 
   return (
     <div
@@ -19,7 +26,7 @@ const TemplateDisplay: React.FC<TemplateDisplayProps> = ({ formData, templateHtm
         overflowY: 'scroll',
         maxHeight: '90vh'
       }}
-      dangerouslySetInnerHTML={{ __html: filledTemplate }}
+      dangerouslySetInnerHTML={{ __html: updatedTemplate }}
     />
   );
 };

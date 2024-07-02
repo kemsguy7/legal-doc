@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import QuestionForm from './QuestionForm';
 import TemplateDisplay from './TemplateDisplay';
-
 import './index.css';
 
 const App: React.FC = () => {
@@ -25,8 +24,11 @@ const App: React.FC = () => {
         // Initialize formData with empty strings for all expected keys
         const initialFormData: { [key: string]: string | string[] } = {};
         fields.forEach((field: any) => {
-          // Assuming here that each field initially expects a single string value
-          initialFormData[field.name] = '';
+          if (field.isConfig) {
+            initialFormData[field.name] = field.defaultValue;
+          } else {
+            initialFormData[field.name] = '';
+          }
         });
         setQuestions(fields);
         setFormData(initialFormData);
