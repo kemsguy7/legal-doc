@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface Question {
   label: string;
@@ -18,9 +18,23 @@ interface FormProps {
 
 const QuestionForm: React.FC<FormProps> = ({ questions, formData, handleChange, handleSubmit }) => {
   const [currentStep, setCurrentStep] = useState<number>(0);
+  const [currentQuestions, setCurrentQuestions] = useState<Question[]>(questions);
+
+  useEffect(() => {
+    if (currentQuestions[currentStep]?.isConfig) {
+      const configValue = formData[currentQuestions[currentStep].name] as string;
+      const nestedQuestions = currentQuestions[currentStep].questions?.[configValue] || [];
+      const updatedQuestions = [
+        ...currentQuestions.slice(0, currentStep + 1),
+        ...nestedQuestions,
+        ...currentQuestions.slice(currentStep + 1),
+      ];
+      setCurrentQuestions(updatedQuestions);
+    }
+  }, [currentStep, formData, currentQuestions]);
 
   const nextStep = () => {
-    setCurrentStep((prevStep) => Math.min(prevStep + 1, questions.length - 1));
+    setCurrentStep((prevStep) => Math.min(prevStep + 1, currentQuestions.length - 1));
   };
 
   const prevStep = () => {
@@ -32,26 +46,12 @@ const QuestionForm: React.FC<FormProps> = ({ questions, formData, handleChange, 
     handleChange(field, values);
   };
 
-  const renderDynamicQuestions = (questions: Question[], configValue: string) => {
-    const dynamicQuestions = questions.find(q => q.name === configValue)?.questions?.[formData[configValue] as string];
-    return dynamicQuestions?.map((question, index) => (
-      <div key={index}>
-        <label>{question.label}</label>
-        <input
-          type="text"
-          value={formData[question.name] as string || ''}
-          onChange={(e) => handleChange(question.name, e.target.value)}
-        />
-      </div>
-    ));
-  };
-
-  const currentQuestion = questions[currentStep];
-  const { label, name, options, type, isConfig } = currentQuestion;
+  const currentQuestion = currentQuestions[currentStep];
+  const { label, name, options, type } = currentQuestion;
 
   return (
     <div>
-      <h2>Question {currentStep + 1} of {questions.length}</h2>
+      <h2>Question {currentStep + 1} of {currentQuestions.length}</h2>
       <div>
         <label>{label}</label>
         {type === 'text' && (
@@ -64,6 +64,12 @@ const QuestionForm: React.FC<FormProps> = ({ questions, formData, handleChange, 
         {type === 'date' && (
           <input
             type="date"
+            value={formData[name] as string || ''}
+            onChange={(e) => handleChange(name, e.target.value)}
+          />
+        )}
+        {type === 'textarea' && (
+          <textarea
             value={formData[name] as string || ''}
             onChange={(e) => handleChange(name, e.target.value)}
           />
@@ -107,12 +113,11 @@ const QuestionForm: React.FC<FormProps> = ({ questions, formData, handleChange, 
           </select>
         )}
       </div>
-      {isConfig && renderDynamicQuestions(questions, name)}
       <div>
         <button onClick={prevStep} disabled={currentStep === 0}>
           Previous
         </button>
-        {currentStep < questions.length - 1 ? (
+        {currentStep < currentQuestions.length - 1 ? (
           <button onClick={nextStep}>
             Next
           </button>
