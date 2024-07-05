@@ -1,0 +1,403 @@
+{
+    "status": true,
+    "message": "item gotten successfully",
+    "data": {
+        "id": 28,
+        "name": "Memorandum Of Confidentiality",
+        "description": " memorandum of confidentiality",
+        "price": 5000,
+        "currency": "NGN",
+        "configuration": {
+            "fields": [
+                "what_date_will_the_parties_be_signing_this_agreement",
+                "what_is_the_full_name_of_the_first_party",
+                "what_is_the_full_company_name_of_the_first_party",
+                "what_is_the_full_organization_name_of_the_first_party",
+                "what_is_the_full_name_of_the_second_party",
+                "what_is_the_full_company_name_of_the_second_party",
+                "what_is_the_address_of_the_first_party",
+                "insert_registration_number",
+                "what_is_the_principal_place_of_business_address_of_the_first_party",
+                "what_is_the_address_of_the_second_party",
+                "what_is_the_cac_registration_number_of_the_company",
+                "what_is_the_principal_place_of_business_address_of_the_second_party",
+                "what_is_the_full_organization_name_of_the_second_party",
+                "what_is_the_nature_of_business_of_the_first_party",
+                "what_is_the_nature_of_business_of_the_second_party",
+                "what_is_the_purpose_of_the_mou",
+                "this",
+                "what_date_will_the_parties_commence_the_business_purpose_contained_in_this_mou",
+                "parties_are_obliged_to_keep_any_confidential_information_secret_for_the_duration_of_this_period",
+                "country_or_state_within_which_neither_party_shall_directly_or_indirectly_engage_in_any_business_or_activity_that_competes_with_the_business_of_the_other_party",
+                "distance_in_kilometers_within_which_neither_party_shall_directly_or_indirectly_engage_in_any_business_or_activity_that_competes_with_the_business_of_the_other_party",
+                "specified_period_e_g_one_year",
+                "name_of_employee"
+            ],
+            "formConfig": {
+                "modules": [
+                    {
+                        "defaultValue": "Person",
+                        "isConfig": true,
+                        "label": "Is the First Party a person, a company or any other organization? ",
+                        "name": "firstPartyType",
+                        "options": [
+                            "Person",
+                            "Company",
+                            "Other_Organization"
+                        ],
+                        "question": "",
+                        "questions": {
+                            "Company": [
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "What is the full company name of the First Party?",
+                                    "name": "what_is_the_full_company_name_of_the_first_party",
+                                    "options": [],
+                                    "type": "text"
+                                },
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "What is the full company name of the First Party?",
+                                    "name": "what_is_the_full_company_name_of_the_first_party",
+                                    "options": [],
+                                    "type": "text"
+                                },
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "insert registration number",
+                                    "name": "insert_registration_number",
+                                    "options": [],
+                                    "type": "text"
+                                },
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "What is the principal place of business (address) of the First Party?",
+                                    "name": "what_is_the_principal_place_of_business_address_of_the_first_party",
+                                    "options": [],
+                                    "type": "text"
+                                },
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "What is the full company name of the First Party?",
+                                    "name": "what_is_the_full_company_name_of_the_first_party",
+                                    "options": [],
+                                    "type": "text"
+                                },
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "Name of Employee",
+                                    "name": "name_of_employee",
+                                    "options": [],
+                                    "type": "text"
+                                }
+                            ],
+                            "Other_Organization": [
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "What is the full organization name of the First Party?",
+                                    "name": "what_is_the_full_organization_name_of_the_first_party",
+                                    "options": [],
+                                    "type": "text"
+                                },
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "What is the full company name of the First Party?",
+                                    "name": "what_is_the_full_company_name_of_the_first_party",
+                                    "options": [],
+                                    "type": "text"
+                                },
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "insert registration number",
+                                    "name": "insert_registration_number",
+                                    "options": [],
+                                    "type": "text"
+                                },
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "What is the principal place of business (address) of the First Party?",
+                                    "name": "what_is_the_principal_place_of_business_address_of_the_first_party",
+                                    "options": [],
+                                    "type": "text"
+                                },
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "What is the full organization name of the First Party?",
+                                    "name": "what_is_the_full_organization_name_of_the_first_party",
+                                    "options": [],
+                                    "type": "text"
+                                },
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "Name of Employee",
+                                    "name": "name_of_employee",
+                                    "options": [],
+                                    "type": "text"
+                                }
+                            ],
+                            "Person": [
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "What is the full name of the First Party?",
+                                    "name": "what_is_the_full_name_of_the_first_party",
+                                    "options": [],
+                                    "type": "text"
+                                },
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "What is the full name of the First Party?",
+                                    "name": "what_is_the_full_name_of_the_first_party",
+                                    "options": [],
+                                    "type": "text"
+                                },
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "What is the address of the First Party?",
+                                    "name": "what_is_the_address_of_the_first_party",
+                                    "options": [],
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "type": "dropdown"
+                    },
+                    {
+                        "defaultValue": "Person",
+                        "isConfig": true,
+                        "label": " Is the Second Party a person, a company or any other organization? ",
+                        "name": "secondPartyType",
+                        "options": [
+                            "Person",
+                            "Company",
+                            "Other_Organization"
+                        ],
+                        "question": "",
+                        "questions": {
+                            "Company": [
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "What is the full company name of the Second Party?",
+                                    "name": "what_is_the_full_company_name_of_the_second_party",
+                                    "options": [],
+                                    "type": "text"
+                                },
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "What is the full company name of the Second Party?",
+                                    "name": "what_is_the_full_company_name_of_the_second_party",
+                                    "options": [],
+                                    "type": "text"
+                                },
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "What is the CAC registration number of the company?",
+                                    "name": "what_is_the_cac_registration_number_of_the_company",
+                                    "options": [],
+                                    "type": "text"
+                                },
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "What is the principal place of business (address) of the Second Party?",
+                                    "name": "what_is_the_principal_place_of_business_address_of_the_second_party",
+                                    "options": [],
+                                    "type": "text"
+                                }
+                            ],
+                            "Other_Organization": [
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "What is the full organization name of the First Party?",
+                                    "name": "what_is_the_full_organization_name_of_the_first_party",
+                                    "options": [],
+                                    "type": "text"
+                                },
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "What is the full organization name of the Second Party?",
+                                    "name": "what_is_the_full_organization_name_of_the_second_party",
+                                    "options": [],
+                                    "type": "text"
+                                },
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "insert registration number",
+                                    "name": "insert_registration_number",
+                                    "options": [],
+                                    "type": "text"
+                                },
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "What is the principal place of business (address) of the Second Party?",
+                                    "name": "what_is_the_principal_place_of_business_address_of_the_second_party",
+                                    "options": [],
+                                    "type": "text"
+                                }
+                            ],
+                            "Person": [
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "What is the full name of the Second Party?",
+                                    "name": "what_is_the_full_name_of_the_second_party",
+                                    "options": [],
+                                    "type": "text"
+                                },
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "What is the full name of the Second Party?",
+                                    "name": "what_is_the_full_name_of_the_second_party",
+                                    "options": [],
+                                    "type": "text"
+                                },
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "What is the address of the Second Party?",
+                                    "name": "what_is_the_address_of_the_second_party",
+                                    "options": [],
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "type": "dropdown"
+                    },
+                    {
+                        "defaultValue": "Yes",
+                        "isConfig": true,
+                        "label": "Would the MOU be legally binding or non- binding? (An agreement is binding if the terms of the agreement are legally enforceable on the parties and both parties are obligated to adhere to the terms and conditions specific in the agreement)",
+                        "name": "isLegallybinding",
+                        "options": [
+                            "Yes",
+                            "No"
+                        ],
+                        "question": "",
+                        "questions": {
+                            "No": [],
+                            "Yes": []
+                        },
+                        "type": "dropdown"
+                    },
+                    {
+                        "defaultValue": "Fixed_Period",
+                        "isConfig": true,
+                        "label": "Do the parties need to maintain the confidentiality of any information pertaining to this transaction for a predetermined amount of time?",
+                        "name": "durationOfConfidentiality",
+                        "options": [
+                            "Fixed_Period",
+                            "No_Specified_Period"
+                        ],
+                        "question": "",
+                        "questions": {
+                            "Fixed_Period": [
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "Parties are obliged to keep any confidential information secret for the duration of this period",
+                                    "name": "parties_are_obliged_to_keep_any_confidential_information_secret_for_the_duration_of_this_period",
+                                    "options": [],
+                                    "type": "text"
+                                },
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "Country or State within which neither party shall directly or indirectly engage in any business or activity that competes with the business of the other party",
+                                    "name": "country_or_state_within_which_neither_party_shall_directly_or_indirectly_engage_in_any_business_or_activity_that_competes_with_the_business_of_the_other_party",
+                                    "options": [],
+                                    "type": "text"
+                                },
+                                {
+                                    "isDynamicConfig": false,
+                                    "label": "distance in kilometers within which neither party shall directly or indirectly engage in any business or activity that competes with the business of the other party",
+                                    "name": "distance_in_kilometers_within_which_neither_party_shall_directly_or_indirectly_engage_in_any_business_or_activity_that_competes_with_the_business_of_the_other_party",
+                                    "options": [],
+                                    "type": "text"
+                                }
+                            ],
+                            "No_Specified_Period": []
+                        },
+                        "type": "dropdown"
+                    },
+                    {
+                        "isDynamicConfig": false,
+                        "label": "What date will the parties be signing this Agreement?",
+                        "name": "what_date_will_the_parties_be_signing_this_agreement",
+                        "options": [],
+                        "type": "text"
+                    },
+                    {
+                        "isDynamicConfig": false,
+                        "label": "What is the nature of business of the First Party?",
+                        "name": "what_is_the_nature_of_business_of_the_first_party",
+                        "options": [],
+                        "type": "text"
+                    },
+                    {
+                        "isDynamicConfig": false,
+                        "label": "What is the nature of business of the Second Party?",
+                        "name": "what_is_the_nature_of_business_of_the_second_party",
+                        "options": [],
+                        "type": "text"
+                    },
+                    {
+                        "isDynamicConfig": false,
+                        "label": "What is the purpose of the MOU?",
+                        "name": "what_is_the_purpose_of_the_mou",
+                        "options": [],
+                        "type": "text"
+                    },
+                    {
+                        "isDynamicConfig": false,
+                        "label": " What is the purpose of the MOU?",
+                        "name": "what_is_the_purpose_of_the_mou",
+                        "options": [],
+                        "type": "text"
+                    },
+                    {
+                        "isDynamicConfig": false,
+                        "label": "Value",
+                        "name": "value",
+                        "options": [],
+                        "type": "text"
+                    },
+                    {
+                        "isDynamicConfig": false,
+                        "label": "What date will the parties commence the business purpose contained in this MOU?",
+                        "name": "what_date_will_the_parties_commence_the_business_purpose_contained_in_this_mou",
+                        "options": [],
+                        "type": "text"
+                    },
+                    {
+                        "isDynamicConfig": false,
+                        "label": " What are the roles/obligation of the first party in relation to business purpose of the MOU?",
+                        "name": "what_are_the_roles_obligation_of_the_first_party_in_relation_to_business_purpose_of_the_mou",
+                        "options": [],
+                        "type": "text"
+                    },
+                    {
+                        "isDynamicConfig": false,
+                        "label": " What are the roles/obligation of the second party in relation to business purpose of the MOU?",
+                        "name": "what_are_the_roles_obligation_of_the_second_party_in_relation_to_business_purpose_of_the_mou",
+                        "options": [],
+                        "type": "text"
+                    },
+                    {
+                        "isDynamicConfig": false,
+                        "label": "specified period, e.g., one year",
+                        "name": "specified_period_e_g_one_year",
+                        "options": [],
+                        "type": "text"
+                    }
+                ]
+            },
+            "html": "html_to_be_sent",
+            "previewHmtl": "preview_html_to_be_sent"
+        }, 
+        "itemCategory": {
+            "id": 3,
+            "name": "General Commercial Contracts",
+            "service": "template",
+            "createdAt": "2024-05-19T21:03:38.151873Z",
+            "updatedAt": "2024-05-19T21:03:38.151873Z",
+            "DeletedAt": null
+        },
+        "createdAt": "2024-07-02T05:40:52.917915Z",
+        "updatedAt": "2024-07-02T05:40:52.917915Z",
+        "DeletedAt": null
+    }
+}

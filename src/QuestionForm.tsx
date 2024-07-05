@@ -21,17 +21,30 @@ const QuestionForm: React.FC<FormProps> = ({ questions, formData, handleChange, 
   const [currentQuestions, setCurrentQuestions] = useState<Question[]>(questions);
 
   useEffect(() => {
-    if (currentQuestions[currentStep]?.isConfig) {
-      const configValue = formData[currentQuestions[currentStep].name] as string;
-      const nestedQuestions = currentQuestions[currentStep].questions?.[configValue] || [];
-      const updatedQuestions = [
-        ...currentQuestions.slice(0, currentStep + 1),
-        ...nestedQuestions,
-        ...currentQuestions.slice(currentStep + 1),
-      ];
-      setCurrentQuestions(updatedQuestions);
-    }
-  }, [currentStep, formData, currentQuestions]);
+    const updateQuestions = () => {
+      let updatedQuestions: Question[] = [];
+      let shouldUpdate = false;
+
+      questions.forEach((question, index) => {
+        updatedQuestions.push(question);
+        if (question.isConfig && formData[question.name]) {
+          const configValue = formData[question.name] as string;
+          const nestedQuestions = question.questions?.[configValue] || [];
+          updatedQuestions = [
+            ...updatedQuestions,
+            ...nestedQuestions
+          ];
+          shouldUpdate = true;
+        }
+      });
+
+      if (shouldUpdate) {
+        setCurrentQuestions(updatedQuestions);
+      }
+    };
+
+    updateQuestions();
+  }, [formData, questions]);
 
   const nextStep = () => {
     setCurrentStep((prevStep) => Math.min(prevStep + 1, currentQuestions.length - 1));

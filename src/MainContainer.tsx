@@ -41,8 +41,9 @@ const App: React.FC = () => {
     localStorage.setItem('formData', JSON.stringify(formData));
   }, [formData]);
 
+  
   const handleChange = (field: string, value: string | string[]) => {
-    setFormData((prevFormData) => ({ ...prevFormData, [field]: value }));
+    setFormData(prevFormData => ({ ...prevFormData, [field]: value }));
   };
 
   const handleSubmit = () => {
@@ -62,7 +63,11 @@ const App: React.FC = () => {
         )}
       </div>
       <div className="template-section">
-        <TemplateDisplay formData={formData as { [key: string]: string }} templateHtml={templateHtml} />
+      <TemplateDisplay 
+  formData={formData} 
+  templateHtml={templateHtml} 
+  questions={questions}
+/>
       </div>
     </div>
   );
